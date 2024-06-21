@@ -67,7 +67,7 @@ The SDK provides various services to interact with the API.
 | [PetsService](documentation/services/PetsService.md) |
 
 </details>
-<br>
+<br/>
 
 # Models
 
@@ -81,7 +81,7 @@ The SDK includes several models that represent the data structures used in API r
 | [Pet](documentation/models/Pet.md) |             |
 
 </details>
-<br>
+<br/>
 
 # License
 
