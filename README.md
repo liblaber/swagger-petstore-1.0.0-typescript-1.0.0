@@ -1,193 +1,92 @@
-# Testsdk Typescript SDK 1.0.0
+# TestSdk TypeScript SDK 1.0.0
 
-The Typescript SDK for Testsdk.
+Welcome to the TestSdk SDK documentation. This guide will help you get started with integrating and using the TestSdk SDK in your project.
 
-- API version: 1.0.0
-- SDK version: 1.0.0
+## Versions
+
+- API version: `1.0.0`
+- SDK version: `1.0.0`
 
 ## Table of Contents
 
-- [Installation](#installation)
+- [Setup & Configuration](#setup--configuration)
+  - [Supported Language Versions](#supported-language-versions)
+  - [Installation](#installation)
 - [Authentication](#authentication)
-  - [Access Token](#access-token)
-- [API Endpoint Services](#api-endpoint-services)
-- [API Models](#api-models)
-- [Sample Usage](#sample-usage)
-- [Testsdk Services](#testsdk-services)
+  - [Access Token Authentication](#access-token-authentication)
+- [Services](#services)
+- [Models](#models)
 - [License](#license)
+
+# Setup & Configuration
+
+## Supported Language Versions
+
+This SDK is compatible with the following versions: `TypeScript >= 4.8.4`
 
 ## Installation
 
-```sh
-npm install testsdk
+To get started with the SDK, we recommend installing using `npm`:
+
+```bash
+npm install test-sdk
 ```
 
-## Authentication
+# Authentication
 
-To see whether an endpoint needs a specific type of authentication check the endpoint's documentation.
+## Access Token Authentication
 
-### Access Token
+The TestSdk API uses an Access Token for authentication.
 
-The Testsdk API uses access tokens as a form of authentication. You can set the access token when initializing the SDK through the constructor:
+This token must be provided to authenticate your requests to the API.
 
-```
-const sdk = new Testsdk('YOUR_ACCESS_TOKEN')
-```
+### Setting the Access Token
 
-Or through the `setAccessToken` method:
+When you initialize the SDK, you can set the access token as follows:
 
-```
-const sdk = new Testsdk()
-sdk.setAccessToken('YOUR_ACCESS_TOKEN')
+```ts
+const sdk = new TestSdk({ token: 'YOUR_TOKEN' });
 ```
 
-You can also set it for each service individually:
+If you need to set or update the access token after initializing the SDK, you can use:
 
-```
-const sdk = new Testsdk()
-sdk.pets.setAccessToken('YOUR_ACCESS_TOKEN')
-```
-
-## Sample Usage
-
-Here is a simple program demonstrating usage of this SDK. It can also be found in the `examples/src/index.ts` file in this directory.
-
-When running the sample make sure to use `npm install` to install all the dependencies.
-
-```Typescript
-import { Testsdk } from 'testsdk';
-
-
-const sdk = new Testsdk({ accessToken: process.env.TESTSDK_ACCESS_TOKEN });
-
-(async () => {
-  try {
-    const result = await sdk.pets
-      .listPets();
-    console.log(result);
-  } catch (err) {
-    const error = err as Error;
-    console.error(error.message);
-  }
-})();
-
-
+```ts
+const sdk = new TestSdk();
+sdk.token = 'YOUR_TOKEN';
 ```
 
-# Testsdk Services
+# Services
 
-A list of all services and services methods.
+The SDK provides various services to interact with the API.
 
-- Services
+<details> 
+<summary>Below is a list of all available services with links to their detailed documentation:</summary>
 
-  - [Pets](#pets)
+| Name                                                 |
+| :--------------------------------------------------- |
+| [PetsService](documentation/services/PetsService.md) |
 
-- [All Methods](#all-methods)
+</details>
+<br>
 
-## Pets
+# Models
 
-| Method                      | Description             |
-| :-------------------------- | :---------------------- |
-| [createPets](#createpets)   | Create a pet            |
-| [listPets](#listpets)       | List all pets           |
-| [showPetById](#showpetbyid) | Info for a specific pet |
+The SDK includes several models that represent the data structures used in API requests and responses. These models help in organizing and managing the data efficiently.
 
-## All Methods
+<details> 
+<summary>Below is a list of all available models with links to their detailed documentation:</summary>
 
-### **createPets**
+| Name                               | Description |
+| :--------------------------------- | :---------- |
+| [Pet](documentation/models/Pet.md) |             |
 
-Create a pet
+</details>
+<br>
 
-- HTTP Method: POST
-- Endpoint: /pets
+# License
 
-**Required Parameters**
+This SDK is licensed under the MIT License.
 
-| input | object | Request body. |
+See the [LICENSE](LICENSE) file for more details.
 
-**Return Type**
-
-Returns a dict object.
-
-**Example Usage Code Snippet**
-
-```Typescript
-import { Testsdk } from 'testsdk';
-
-const sdk = new Testsdk({ accessToken: process.env.TESTSDK_ACCESS_TOKEN });
-
-(async () => {
-  const input = { id: 85623452, name: 'name', tag: 'tag' };
-  const result = await sdk.pets.createPets(input);
-  console.log(result);
-})();
-
-```
-
-### **listPets**
-
-List all pets
-
-- HTTP Method: GET
-- Endpoint: /pets
-
-**Optional Parameters**
-
-Optional parameters are passed as part of the last parameter to the method. Ex. {optionalParam1 : 'value1', optionalParam2: 'value2'}
-
-| Name  | Type   | Description                                    |
-| :---- | :----- | :--------------------------------------------- |
-| limit | number | How many items to return at one time (max 100) |
-
-**Return Type**
-
-Pets
-
-**Example Usage Code Snippet**
-
-```Typescript
-import { Testsdk } from 'testsdk';
-
-const sdk = new Testsdk({ accessToken: process.env.TESTSDK_ACCESS_TOKEN });
-
-(async () => {
-  const result = await sdk.pets.listPets({ limit: -99263401 });
-  console.log(result);
-})();
-
-```
-
-### **showPetById**
-
-Info for a specific pet
-
-- HTTP Method: GET
-- Endpoint: /pets/{petId}
-
-**Required Parameters**
-
-| Name  | Type   | Description                   |
-| :---- | :----- | :---------------------------- |
-| petId | string | The id of the pet to retrieve |
-
-**Return Type**
-
-Pet
-
-**Example Usage Code Snippet**
-
-```Typescript
-import { Testsdk } from 'testsdk';
-
-const sdk = new Testsdk({ accessToken: process.env.TESTSDK_ACCESS_TOKEN });
-
-(async () => {
-  const result = await sdk.pets.showPetById('petId');
-  console.log(result);
-})();
-
-```
-
-## License
-
-License: MIT. See license in LICENSE.
+<!-- This file was generated by liblab | https://liblab.com/ -->

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "es6",
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,9 +15,8 @@
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "declarationMap": true,
-    "lib": ["ES2021.String", "dom", "esnext"],
+    "lib": ["es2017", "dom"],
     "sourceMap": true
   },
-  "include": ["./src/"],
-  "exclude": ["src/client/@custom_types"]
+  "include": ["src/"]
 }
