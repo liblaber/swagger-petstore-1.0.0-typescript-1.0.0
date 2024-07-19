@@ -1,6 +1,6 @@
-# TestSdk TypeScript SDK 1.0.0
+# PetstoreClient TypeScript SDK 1.0.0
 
-Welcome to the TestSdk SDK documentation. This guide will help you get started with integrating and using the TestSdk SDK in your project.
+Welcome to the PetstoreClient SDK documentation. This guide will help you get started with integrating and using the PetstoreClient SDK in your project.
 
 ## Versions
 
@@ -29,33 +29,33 @@ This SDK is compatible with the following versions: `TypeScript >= 4.8.4`
 To get started with the SDK, we recommend installing using `npm`:
 
 ```bash
-npm install test-sdk
+npm install petstore_client
 ```
 
-# Authentication
+## Authentication
 
-## Access Token Authentication
+### Access Token Authentication
 
-The TestSdk API uses an Access Token for authentication.
+The PetstoreClient API uses an Access Token for authentication.
 
 This token must be provided to authenticate your requests to the API.
 
-### Setting the Access Token
+#### Setting the Access Token
 
 When you initialize the SDK, you can set the access token as follows:
 
 ```ts
-const sdk = new TestSdk({ token: 'YOUR_TOKEN' });
+const sdk = new PetstoreClient({ token: 'YOUR_TOKEN' });
 ```
 
 If you need to set or update the access token after initializing the SDK, you can use:
 
 ```ts
-const sdk = new TestSdk();
+const sdk = new PetstoreClient();
 sdk.token = 'YOUR_TOKEN';
 ```
 
-# Services
+## Services
 
 The SDK provides various services to interact with the API.
 
@@ -67,9 +67,8 @@ The SDK provides various services to interact with the API.
 | [PetsService](documentation/services/PetsService.md) |
 
 </details>
-<br/>
 
-# Models
+## Models
 
 The SDK includes several models that represent the data structures used in API requests and responses. These models help in organizing and managing the data efficiently.
 
@@ -81,9 +80,8 @@ The SDK includes several models that represent the data structures used in API r
 | [Pet](documentation/models/Pet.md) |             |
 
 </details>
-<br/>
 
-# License
+## License
 
 This SDK is licensed under the MIT License.
 

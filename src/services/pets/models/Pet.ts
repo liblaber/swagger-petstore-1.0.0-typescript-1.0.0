@@ -5,10 +5,12 @@ import { z } from 'zod';
 /**
  * The shape of the model inside the application code - what the users use
  */
-export const pet = z.object({
-  id: z.number(),
-  name: z.string(),
-  tag: z.string().optional(),
+export const pet: any = z.lazy(() => {
+  return z.object({
+    id: z.number(),
+    name: z.string(),
+    tag: z.string().optional(),
+  });
 });
 
 /**
@@ -24,10 +26,30 @@ export type Pet = z.infer<typeof pet>;
  * The shape of the model mapping from the api schema into the application shape.
  * Is equal to application shape if all property names match the api schema
  */
-export const petResponse = pet;
+export const petResponse: any = z.lazy(() => {
+  return z
+    .object({
+      id: z.number(),
+      name: z.string(),
+      tag: z.string().optional(),
+    })
+    .transform((data) => ({
+      id: data['id'],
+      name: data['name'],
+      tag: data['tag'],
+    }));
+});
 
 /**
  * The shape of the model mapping from the application shape into the api schema.
  * Is equal to application shape if all property names match the api schema
  */
-export const petRequest = pet;
+export const petRequest: any = z.lazy(() => {
+  return z
+    .object({ id: z.number().nullish(), name: z.string().nullish(), tag: z.string().nullish() })
+    .transform((data) => ({
+      id: data['id'],
+      name: data['name'],
+      tag: data['tag'],
+    }));
+});

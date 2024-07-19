@@ -1,9 +1,9 @@
 {
-  "name": "test-sdk",
+  "name": "petstore_client",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "test-sdk": "file:../",
+    "petstore_client": "file:../",
     "zod": "3.22.0"
   },
   "scripts": {

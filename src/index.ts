@@ -4,7 +4,7 @@ import { Environment } from './http/environment';
 import { SdkConfig } from './http/types';
 import { PetsService } from './services/pets';
 
-export class TestSdk {
+export class PetstoreClient {
   public readonly pets: PetsService;
 
   constructor(public config: SdkConfig) {
@@ -22,6 +22,10 @@ export class TestSdk {
 
   set environment(environment: Environment) {
     this.pets.baseUrl = environment;
+  }
+
+  set timeout(timeout: number) {
+    this.pets.timeout = timeout;
   }
 
   set token(token: string) {
