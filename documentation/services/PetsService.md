@@ -26,14 +26,14 @@ A list of all methods in the `PetsService` service. Click on the method name to 
 **Example Usage Code Snippet**
 
 ```typescript
-import { TestSdk } from 'test-sdk';
+import { PetstoreClient } from 'petstore_client';
 
 (async () => {
-  const testSdk = new TestSdk({
+  const petstoreClient = new PetstoreClient({
     token: 'YOUR_TOKEN',
   });
 
-  const { data } = await testSdk.pets.listPets({
+  const { data } = await petstoreClient.pets.listPets({
     limit: 81,
   });
 
@@ -48,17 +48,17 @@ import { TestSdk } from 'test-sdk';
 
 **Parameters**
 
-| Name | Type | Required | Description       |
-| :--- | :--- | :------- | :---------------- |
-| body | Pet  | ✅       | The request body. |
+| Name | Type                    | Required | Description       |
+| :--- | :---------------------- | :------- | :---------------- |
+| body | [Pet](../models/Pet.md) | ✅       | The request body. |
 
 **Example Usage Code Snippet**
 
 ```typescript
-import { Pet, TestSdk } from 'test-sdk';
+import { Pet, PetstoreClient } from 'petstore_client';
 
 (async () => {
-  const testSdk = new TestSdk({
+  const petstoreClient = new PetstoreClient({
     token: 'YOUR_TOKEN',
   });
 
@@ -68,7 +68,7 @@ import { Pet, TestSdk } from 'test-sdk';
     tag: 'tag',
   };
 
-  const { data } = await testSdk.pets.createPets(input);
+  const { data } = await petstoreClient.pets.createPets(input);
 
   console.log(data);
 })();
@@ -92,14 +92,14 @@ import { Pet, TestSdk } from 'test-sdk';
 **Example Usage Code Snippet**
 
 ```typescript
-import { TestSdk } from 'test-sdk';
+import { PetstoreClient } from 'petstore_client';
 
 (async () => {
-  const testSdk = new TestSdk({
+  const petstoreClient = new PetstoreClient({
     token: 'YOUR_TOKEN',
   });
 
-  const { data } = await testSdk.pets.showPetById('petId');
+  const { data } = await petstoreClient.pets.showPetById('petId');
 
   console.log(data);
 })();

@@ -1,40 +1,18 @@
 {
-  "liblabVersion": "2.1.17",
-  "date": "2024-06-21T16:09:44.078Z",
+  "liblabVersion": "2.1.20",
+  "date": "2024-07-19T10:27:03.165Z",
   "config": {
-    "apiId": 222,
-    "sdkName": "test-sdk",
+    "apiId": 419,
+    "sdkName": "petstore_client",
     "sdkVersion": "1.0.0",
     "liblabVersion": "2",
     "deliveryMethods": ["zip"],
     "languages": ["typescript"],
     "apiVersion": "1.0.0",
-    "apiName": "test-api",
-    "specFilePath": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.json",
+    "apiName": "petstore_client",
+    "specFilePath": "./petstore.json",
     "auth": ["bearer"],
     "languageOptions": {
-      "csharp": {
-        "packageId": "",
-        "githubRepoName": "",
-        "ignoreFiles": [],
-        "liblabVersion": "2",
-        "sdkVersion": "1.0.0"
-      },
-      "go": {
-        "goModuleName": "github.com/swagger-api/swagger-petstore",
-        "githubRepoName": "",
-        "ignoreFiles": [],
-        "liblabVersion": "2",
-        "sdkVersion": "1.0.0"
-      },
-      "python": {
-        "alwaysInitializeOptionals": false,
-        "pypiPackageName": "",
-        "githubRepoName": "",
-        "ignoreFiles": [],
-        "liblabVersion": "2",
-        "sdkVersion": "1.0.0"
-      },
       "typescript": {
         "bundle": false,
         "exportClassDefault": false,
@@ -59,7 +37,6 @@
     "generateEnv": true,
     "includeOptionalSnippetParameters": true,
     "inferServiceNames": false,
-    "injectedModels": [],
     "license": {
       "type": "MIT",
       "name": "MIT",
@@ -78,7 +55,7 @@
       "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
     },
     "multiTenant": true,
-    "specUrl": "https://dev-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/222/open-api-spec.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3C2RXH7MWUCMN7ON%2F20240621%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240621T160936Z&X-Amz-Expires=43200&X-Amz-Signature=f5be411742493c4dd15d9b35a1af00747a4b7b73f0fe9846496b4031f8d345e2&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "specUrl": "https://dev-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/419/open-api-spec.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3C2RXH7MWUCMN7ON%2F20240719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240719T102659Z&X-Amz-Expires=43200&X-Amz-Signature=7bdd1d6ed4c096676dd2aef00537499bdc9602e7e3e72be56128cbc347356d59&X-Amz-SignedHeaders=host&x-id=GetObject",
     "includeWatermark": true,
     "language": "typescript",
     "deliveryMethod": "zip",
@@ -128,11 +105,13 @@
     "src/services/pets/models/pet.ts",
     ".gitignore",
     "src/services/base-service.ts",
+    "src/services/pets/pets.ts",
     "src/index.ts",
     "src/http/index.ts",
     "src/services/pets/models/index.ts",
     "src/services/pets/index.ts",
     "src/http/handlers/handler-chain.ts",
+    "src/http/types.ts",
     "src/http/error.ts",
     "src/http/handlers/terminating-handler.ts",
     "src/http/handlers/hook-handler.ts",
@@ -146,8 +125,7 @@
     "src/services/pets/request-params.ts",
     "documentation/models/Pet.md",
     "src/http/handlers/request-validation-handler.ts",
-    "src/services/pets/pets.ts",
-    "src/http/types.ts",
+    "src/http/transport/request.ts",
     "documentation/services/PetsService.md",
     "README.md"
   ]

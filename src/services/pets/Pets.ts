@@ -4,7 +4,8 @@ import { z } from 'zod';
 import { BaseService } from '../base-service';
 import { ContentType, HttpResponse } from '../../http';
 import { RequestConfig } from '../../http/types';
-import { Pet, petRequest, petResponse } from './models';
+import { Request } from '../../http/transport/request';
+import { Pet, petRequest, petResponse } from './models/pet';
 import { ListPetsParams } from './request-params';
 
 export class PetsService extends BaseService {
@@ -13,20 +14,19 @@ export class PetsService extends BaseService {
    * @param {number} [limit] - How many items to return at one time (max 100)
    * @returns {Promise<HttpResponse<Pet[]>>} A paged array of pets
    */
-  async listPets(params: ListPetsParams, requestConfig?: RequestConfig): Promise<HttpResponse<Pet[]>> {
-    const path = '/pets';
-    const options = {
+  async listPets(params?: ListPetsParams, requestConfig?: RequestConfig): Promise<HttpResponse<Pet[]>> {
+    const request = new Request({
+      method: 'GET',
+      path: '/pets',
+      config: this.config,
       responseSchema: z.array(petResponse),
       requestSchema: z.any(),
-      queryParams: {
-        limit: params.limit,
-      },
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addQueryParam('limit', params?.limit);
+    return this.client.call(request);
   }
 
   /**
@@ -34,20 +34,19 @@ export class PetsService extends BaseService {
    * @returns {Promise<HttpResponse<any>>} Null response
    */
   async createPets(body: Pet, requestConfig?: RequestConfig): Promise<HttpResponse<undefined>> {
-    const path = '/pets';
-    const options = {
+    const request = new Request({
+      method: 'POST',
+      body,
+      path: '/pets',
+      config: this.config,
       responseSchema: z.undefined(),
       requestSchema: petRequest,
-      body: body as any,
-      headers: {
-        'Content-Type': 'application/json',
-      },
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-
-    return this.client.post(path, options);
+      requestConfig,
+    });
+    request.addHeaderParam('Content-Type', 'application/json');
+    return this.client.call(request);
   }
 
   /**
@@ -56,15 +55,17 @@ export class PetsService extends BaseService {
    * @returns {Promise<HttpResponse<Pet>>} Expected response to a valid request
    */
   async showPetById(petId: string, requestConfig?: RequestConfig): Promise<HttpResponse<Pet>> {
-    const path = this.client.buildPath('/pets/{petId}', { petId });
-    const options = {
+    const request = new Request({
+      method: 'GET',
+      path: '/pets/{petId}',
+      config: this.config,
       responseSchema: petResponse,
       requestSchema: z.any(),
       requestContentType: ContentType.Json,
       responseContentType: ContentType.Json,
-      retry: requestConfig?.retry,
-    };
-
-    return this.client.get(path, options);
+      requestConfig,
+    });
+    request.addPathParam('petId', petId);
+    return this.client.call(request);
   }
 }
