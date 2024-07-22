@@ -17,21 +17,21 @@ export class HookHandler implements RequestHandler {
 
     const hookParams = this.getHookParams<T>(request);
 
-    const nextRequest = this.beforeRequest(request, hookParams);
+    const nextRequest = await this.beforeRequest(request, hookParams);
 
     const response = await this.next.handle(nextRequest);
 
     if (response.metadata.status < 400) {
-      return this.hook.afterResponse(request, response, hookParams);
+      return await this.hook.afterResponse(request, response, hookParams);
     }
 
-    const error = this.hook.onError(request, response, hookParams);
+    const error = await this.hook.onError(request, response, hookParams);
 
     throw new HttpError(error.metadata, error.error);
   }
 
-  beforeRequest<T>(request: Request<T>, hookParams: Map<string, string>): Request<T> {
-    const hookRequest = this.hook.beforeRequest(request, hookParams);
+  private async beforeRequest<T>(request: Request<T>, hookParams: Map<string, string>): Promise<Request<T>> {
+    const hookRequest = await this.hook.beforeRequest(request, hookParams);
 
     request.updateFromHookRequest(hookRequest);
 

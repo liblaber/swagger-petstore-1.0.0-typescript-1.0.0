@@ -26,7 +26,7 @@ export class PetsService extends BaseService {
       requestConfig,
     });
     request.addQueryParam('limit', params?.limit);
-    return this.client.call(request);
+    return this.client.call<Pet[]>(request);
   }
 
   /**
@@ -46,7 +46,7 @@ export class PetsService extends BaseService {
       requestConfig,
     });
     request.addHeaderParam('Content-Type', 'application/json');
-    return this.client.call(request);
+    return this.client.call<undefined>(request);
   }
 
   /**
@@ -66,6 +66,6 @@ export class PetsService extends BaseService {
       requestConfig,
     });
     request.addPathParam('petId', petId);
-    return this.client.call(request);
+    return this.client.call<Pet>(request);
   }
 }

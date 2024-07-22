@@ -29,9 +29,13 @@ export interface HttpError {
 }
 
 export interface Hook {
-  beforeRequest(request: HttpRequest, params: Map<string, string>): HttpRequest;
+  beforeRequest(request: HttpRequest, params: Map<string, string>): Promise<HttpRequest>;
 
-  afterResponse(request: HttpRequest, response: HttpResponse<any>, params: Map<string, string>): HttpResponse<any>;
+  afterResponse(
+    request: HttpRequest,
+    response: HttpResponse<any>,
+    params: Map<string, string>,
+  ): Promise<HttpResponse<any>>;
 
-  onError(request: HttpRequest, response: HttpResponse<any>, params: Map<string, string>): HttpError;
+  onError(request: HttpRequest, response: HttpResponse<any>, params: Map<string, string>): Promise<HttpError>;
 }

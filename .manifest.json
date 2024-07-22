@@ -1,6 +1,6 @@
 {
-  "liblabVersion": "2.1.20",
-  "date": "2024-07-19T10:27:03.165Z",
+  "liblabVersion": "2.1.22",
+  "date": "2024-07-22T19:47:41.862Z",
   "config": {
     "apiId": 419,
     "sdkName": "petstore_client",
@@ -55,7 +55,7 @@
       "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
     },
     "multiTenant": true,
-    "specUrl": "https://dev-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/419/open-api-spec.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3C2RXH7MWUCMN7ON%2F20240719%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240719T102659Z&X-Amz-Expires=43200&X-Amz-Signature=7bdd1d6ed4c096676dd2aef00537499bdc9602e7e3e72be56128cbc347356d59&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "specUrl": "https://dev-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/419/open-api-spec.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3C2RXH7MWUCMN7ON%2F20240722%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240722T194737Z&X-Amz-Expires=43200&X-Amz-Signature=bd394f695992e5c73bf9e103fd0d21aef7f30f71d05c0456f979f0cd5be71bfc&X-Amz-SignedHeaders=host&x-id=GetObject",
     "includeWatermark": true,
     "language": "typescript",
     "deliveryMethod": "zip",
