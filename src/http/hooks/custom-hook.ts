@@ -5,15 +5,23 @@ import { Hook } from './hook';
 import { HttpRequest, HttpResponse, HttpError } from './hook';
 
 export class CustomHook implements Hook {
-  beforeRequest(request: HttpRequest): HttpRequest {
+  public async beforeRequest(request: HttpRequest, params: Map<string, string>): Promise<HttpRequest> {
     return request;
   }
 
-  afterResponse(request: HttpRequest, response: HttpResponse<any>): HttpResponse<any> {
+  public async afterResponse(
+    request: HttpRequest,
+    response: HttpResponse<any>,
+    params: Map<string, string>,
+  ): Promise<HttpResponse<any>> {
     return response;
   }
 
-  onError(request: HttpRequest, response: HttpResponse<any>): HttpError {
+  public async onError(
+    request: HttpRequest,
+    response: HttpResponse<any>,
+    params: Map<string, string>,
+  ): Promise<HttpError> {
     return new CustomHttpError('a custom error message', response.metadata);
   }
 }
