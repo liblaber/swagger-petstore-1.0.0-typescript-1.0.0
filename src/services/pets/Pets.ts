@@ -5,7 +5,7 @@ import { BaseService } from '../base-service';
 import { ContentType, HttpResponse } from '../../http';
 import { RequestConfig } from '../../http/types';
 import { RequestBuilder } from '../../http/transport/request-builder';
-import { Pet, petRequest, petResponse } from './models/pet';
+import { Pet, petRequest, petResponse } from './models';
 import { ListPetsParams } from './request-params';
 
 export class PetsService extends BaseService {

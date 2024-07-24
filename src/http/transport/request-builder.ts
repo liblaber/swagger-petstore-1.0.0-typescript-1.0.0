@@ -3,7 +3,7 @@
 import z, { ZodType } from 'zod';
 import { Request, CreateRequestParameters } from './request';
 import { ContentType, HttpMethod, SdkConfig, RequestConfig, RetryOptions, ValidationOptions } from '../types';
-import { Environment } from '../environment';
+import { Environment } from '../Environment';
 
 export class RequestBuilder<T> {
   private params: CreateRequestParameters<T>;
