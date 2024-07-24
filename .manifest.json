@@ -1,0 +1,133 @@
+{
+  "liblabVersion": "2.1.23",
+  "date": "2024-07-24T16:38:34.883Z",
+  "config": {
+    "apiId": 419,
+    "sdkName": "petstore_client",
+    "sdkVersion": "1.0.0",
+    "liblabVersion": "2",
+    "deliveryMethods": ["zip"],
+    "languages": ["typescript"],
+    "apiVersion": "1.0.0",
+    "apiName": "petstore_client",
+    "specFilePath": "./petstore.json",
+    "auth": ["bearer"],
+    "languageOptions": {
+      "typescript": {
+        "bundle": false,
+        "exportClassDefault": false,
+        "httpClient": "axios",
+        "npmName": "",
+        "npmOrg": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "sdkVersion": "1.0.0"
+      }
+    },
+    "publishing": {
+      "githubOrg": ""
+    },
+    "authentication": {
+      "access": {
+        "prefix": "Bearer"
+      }
+    },
+    "devContainer": false,
+    "generateEnv": true,
+    "includeOptionalSnippetParameters": true,
+    "inferServiceNames": false,
+    "license": {
+      "type": "MIT",
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT",
+      "path": "MIT.ejs"
+    },
+    "responseHeaders": false,
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpCodesToRetry": [408, 429, 500, 502, 503, 504],
+      "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    "multiTenant": true,
+    "specUrl": "https://dev-liblab-api-stack-specs.s3.us-east-1.amazonaws.com/419/open-api-spec.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3C2RXH7MWUCMN7ON%2F20240724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240724T163827Z&X-Amz-Expires=43200&X-Amz-Signature=1cbd3730540c38fae90e7088317bd5717c50f38ad97bd8bce488e6fbca649b35&X-Amz-SignedHeaders=host&x-id=GetObject",
+    "includeWatermark": true,
+    "language": "typescript",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": false,
+      "sourceDir": ""
+    },
+    "bundle": false,
+    "exportClassDefault": false,
+    "httpClient": "axios",
+    "npmName": "",
+    "npmOrg": "",
+    "githubRepoName": "",
+    "ignoreFiles": [],
+    "typescriptVersion": "5.3.3",
+    "zodVersion": "3.22.0",
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "lib": ["es2017", "dom"]
+    },
+    "usesFormData": false,
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "httpLibrary": {
+      "name": "axios",
+      "packages": {
+        "axios": "^1.6.8"
+      },
+      "languages": ["typescript"]
+    },
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    }
+  },
+  "files": [
+    "package.json",
+    "tsconfig.json",
+    "examples/tsconfig.json",
+    "examples/package.json",
+    "examples/README.md",
+    "examples/src/index.ts",
+    "src/http/client.ts",
+    "src/http/serializer.ts",
+    "src/services/pets/models/pet.ts",
+    ".gitignore",
+    "src/services/base-service.ts",
+    "src/services/pets/pets.ts",
+    "src/index.ts",
+    "src/http/index.ts",
+    "src/services/pets/models/index.ts",
+    "src/services/pets/index.ts",
+    "src/http/handlers/handler-chain.ts",
+    "src/http/types.ts",
+    "src/http/error.ts",
+    "src/http/handlers/terminating-handler.ts",
+    "src/http/handlers/hook-handler.ts",
+    "src/http/hooks/custom-hook.ts",
+    "src/http/hooks/hook.ts",
+    "src/http/handlers/retry-handler.ts",
+    "src/http/environment.ts",
+    "src/http/handlers/response-validation-handler.ts",
+    "src/http/handlers/auth-handler.ts",
+    "./LICENSE",
+    "src/services/pets/request-params.ts",
+    "documentation/models/Pet.md",
+    "src/http/handlers/request-validation-handler.ts",
+    "src/http/transport/request.ts",
+    "src/http/transport/request-builder.ts",
+    "documentation/services/PetsService.md",
+    "README.md"
+  ]
+}
