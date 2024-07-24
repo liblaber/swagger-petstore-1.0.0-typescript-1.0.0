@@ -27,7 +27,7 @@ export function serializeQuery(
   _style = SerializationStyle.FORM,
   explode = true,
 ): string {
-  if (!queryParams || !Object.entries(queryParams)) {
+  if (!queryParams || !Object.entries(queryParams).length) {
     return '';
   }
 
@@ -60,9 +60,12 @@ export function serializeQuery(
   return `?${query}`;
 }
 
-export function serializeHeader(headers?: Record<string, unknown>, explode = false): Record<string, string> {
-  if (!headers) {
-    return {};
+export function serializeHeader(
+  headers?: Record<string, unknown>,
+  explode = false,
+): Record<string, string> | undefined {
+  if (!headers || !Object.entries(headers).length) {
+    return undefined;
   }
 
   return Object.entries(headers).reduce((acc, [key, value]) => {

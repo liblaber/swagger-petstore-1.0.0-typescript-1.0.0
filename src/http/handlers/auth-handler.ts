@@ -22,7 +22,7 @@ export class AuthHandler implements RequestHandler {
       return request;
     }
 
-    request.headers.set('Authorization', `Bearer ${token}`);
+    request.addHeaderParam('Authorization', `Bearer ${token}`);
 
     return request;
   }

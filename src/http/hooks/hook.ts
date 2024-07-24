@@ -3,12 +3,13 @@
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 export interface HttpRequest {
+  baseUrl: string;
   method: HttpMethod;
   path: string;
-  headers?: Map<string, unknown>;
+  headers: Map<string, unknown>;
   body?: BodyInit;
   abortSignal?: AbortSignal;
-  queryParams?: Map<string, unknown>;
+  queryParams: Map<string, unknown>;
 }
 
 interface HttpMetadata {
